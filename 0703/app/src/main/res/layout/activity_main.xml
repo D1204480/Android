@@ -16,4 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="366dp"
+        android:layout_height="300dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="33dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
