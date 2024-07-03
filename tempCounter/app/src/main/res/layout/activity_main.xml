@@ -40,7 +40,7 @@
         android:layout_marginBottom="384dp"
         android:backgroundTint="#56B4DE"
         android:onClick="toFtemp"
-        android:text="華氏"
+        android:text="to F 華氏"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,7 +52,7 @@
         android:layout_marginBottom="384dp"
         android:backgroundTint="#9AE245"
         android:onClick="toCtemp"
-        android:text="攝氏"
+        android:text="to C 攝氏"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
