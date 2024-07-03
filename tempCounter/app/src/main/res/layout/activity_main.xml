@@ -25,28 +25,34 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="144dp"
         android:ems="10"
+        android:hint="請輸入溫度"
         android:inputType="number"
         android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/fTemp"
+        android:layout_width="115dp"
+        android:layout_height="65dp"
         android:layout_marginStart="92dp"
         android:layout_marginBottom="384dp"
-        android:text="Button"
+        android:backgroundTint="#56B4DE"
+        android:onClick="toFtemp"
+        android:text="華氏"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
+        android:id="@+id/cTemp"
+        android:layout_width="115dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="384dp"
-        android:text="Button"
+        android:backgroundTint="#9AE245"
+        android:onClick="toCtemp"
+        android:text="攝氏"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
