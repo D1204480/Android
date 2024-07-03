@@ -39,12 +39,11 @@ public class MainActivity extends AppCompatActivity {
     // 轉成攝氏
     public void toCtemp(View view) {
         TextView tempText = (TextView) findViewById(R.id.temp);
-        Button fTempButton = (Button) findViewById(R.id.fTemp);   //華氏按鈕
+        Button cTempButton = (Button) findViewById(R.id.fTemp);   //攝氏按鈕
         TextView showTemp = (TextView) findViewById(R.id.showTemp);  // 顯示溫度區
 
 
         int temp = Integer.parseInt(tempText.getText().toString());  // 取得溫度
-
         int toCtemp = (5 * (temp -32)) / 9;
         showTemp.setText(String.valueOf(toCtemp));
 
