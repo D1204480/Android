@@ -45,10 +45,12 @@
 
     <Button
         android:id="@+id/count"
-        android:layout_width="113dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="332dp"
+        android:layout_width="130dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="348dp"
+        android:backgroundTint="#FF9800"
+        android:onClick="Count"
         android:text="計數"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,10 +58,12 @@
 
     <Button
         android:id="@+id/init"
-        android:layout_width="115dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="240dp"
+        android:layout_width="130dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="244dp"
+        android:backgroundTint="#67C9D5"
+        android:onClick="Init"
         android:text="歸零"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
