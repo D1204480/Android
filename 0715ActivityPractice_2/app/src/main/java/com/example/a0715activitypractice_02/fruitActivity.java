@@ -27,22 +27,22 @@ public class fruitActivity extends AppCompatActivity {
             return insets;
         });
 
-//        Bundle bundle = this.getIntent().getExtras();
-//
-//        if (bundle != null) {
-//            String fruit = String.format(bundle.getString("FRUIT"));
-//
-//            // 設定name
-//            TextView name = (TextView) findViewById(R.id.name);
-//            name.setText(fruit);
-//
-//            // 設定照片
-//            ImageView img = (ImageView) findViewById(R.id.minionImg);
-//            String filename = fruit.toLowerCase();
-//            int imgId = getResources().getIdentifier(filename, "drawable", getPackageName());
-//            Drawable drawableImg = ContextCompat.getDrawable(this, imgId);
-//            img.setImageDrawable(drawableImg);
-//        }
+        Bundle bundle = this.getIntent().getExtras();
+
+        if (bundle != null) {
+            String fruit = String.format(bundle.getString("FRUIT"));
+
+            // 設定name
+            TextView name = (TextView) findViewById(R.id.name);
+            name.setText(fruit);
+
+            // 設定照片
+            ImageView img = (ImageView) findViewById(R.id.minionImg);
+            String filename = fruit.toLowerCase();
+            int imgId = getResources().getIdentifier(filename, "drawable", getPackageName());
+            Drawable drawableImg = ContextCompat.getDrawable(this, imgId);
+            img.setImageDrawable(drawableImg);
+        }
     }
 
     public void CloseActivity(View view) {
