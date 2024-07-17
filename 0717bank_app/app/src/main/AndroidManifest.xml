@@ -13,6 +13,9 @@
         android:theme="@style/Theme._0717bank_app"
         tools:targetApi="31">
         <activity
+            android:name=".DepositActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
