@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, fruitActivity.class);
 
-        // 設定一個bundle來放資料
+        // 設定一個bundle(Map容器)來放資料
         Bundle bundle = new Bundle();
-        bundle.putString("FRUIT", fruit);
+        bundle.putString("FRUIT", fruit);  // bundle為key/value組合
 
         // 利用intent攜帶bundle的資料
         intent.putExtras(bundle);

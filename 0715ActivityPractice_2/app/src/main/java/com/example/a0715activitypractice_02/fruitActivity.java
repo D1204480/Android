@@ -27,7 +27,7 @@ public class fruitActivity extends AppCompatActivity {
             return insets;
         });
 
-        Bundle bundle = this.getIntent().getExtras();
+        Bundle bundle = this.getIntent().getExtras();  //找bundle容器的key值
 
         if (bundle != null) {
             String fruit = String.format(bundle.getString("FRUIT"));
@@ -46,6 +46,6 @@ public class fruitActivity extends AppCompatActivity {
     }
 
     public void CloseActivity(View view) {
-        finish();
+        finish(); // 關閉頁面
     }
 }
