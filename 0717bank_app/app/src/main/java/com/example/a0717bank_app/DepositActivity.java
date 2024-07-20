@@ -53,33 +53,40 @@ public class DepositActivity extends AppCompatActivity {
 
     // 取款、存款
     public void handleConfirm(View view) {
+
         // 讀取輸入金額
         EditText inputMoneyText = (EditText) findViewById(R.id.input_money);
         String inputMoneyStr = inputMoneyText.getText().toString();
 
+        // 建立Intent物件, 回傳資料
+        Intent returnIntent = new Intent();  // 回傳給MainActivity
+
         if (!inputMoneyStr.isEmpty()) {
-            double inputMoney = Double.parseDouble(inputMoneyText.getText().toString());
+            double inputMoney = Double.parseDouble(inputMoneyStr);
 
-            if (view.getId() == R.id.withdraw_btn) {   // 取款
+            // 取款
+            if (view.getId() == R.id.withdraw_btn) {
 
+                // 餘額足夠提款
                 if (dollarNTD >= inputMoney) {
                     dollarNTD = dollarNTD - inputMoney;
+
+                } else {
+                    // 餘額不足
+                    if (dollarNTD < 0) {
+                        returnIntent.putExtra("NTD", -1);  // 資料傳回main  // 餘額不足
+                        setResult(Activity.RESULT_CANCELED, returnIntent);
+                    }
                 }
 
-            } else if (view.getId() == R.id.deposit_btn) {   // 存款
-
+            // 存款
+            } else if (view.getId() == R.id.deposit_btn) {
                 dollarNTD = dollarNTD + inputMoney;
             }
 
-            // 回傳更新後的餘額
-            Intent resultIntent = new Intent();  // 跳轉回mainActivity
-            resultIntent.putExtra("NTD", dollarNTD);  // 資料傳回main
-            setResult(Activity.RESULT_OK, resultIntent);
-
-            // 餘額不足
-            if (dollarNTD < 0) {
-                setResult(Activity.RESULT_CANCELED, resultIntent);
-            }
+            // 操作結果, 傳回main
+            returnIntent.putExtra("NTD", dollarNTD);
+            setResult(Activity.RESULT_OK, returnIntent);
 
             finish();
         }

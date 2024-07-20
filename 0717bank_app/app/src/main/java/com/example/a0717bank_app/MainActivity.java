@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> intentActivityResultLauncher;
     private double dollarNTD  = 1000; // 帳戶餘額，預設1000;
+    private double balance;  // 存(提)款後的餘額
 
 
     @Override
@@ -33,14 +34,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // 為了可以在傳送端接收返回結果
         intentActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
+
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         // 寫另一個Activity回傳後, 得到回傳的資料之後的方法
                         if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
-                            dollarNTD = result.getData().getDoubleExtra("NTD", -1);
+                            balance = result.getData().getDoubleExtra("NTD", -1);
 
                             updateUI();
                         }
@@ -52,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
     public void GotoDeposit(View view) {
         Intent intent = new Intent(this, DepositActivity.class);
         intent.putExtra("NTD", dollarNTD);
-//        startActivity(intent);
-        intentActivityResultLauncher.launch(intent);
+//        startActivity(intent);   // 傳遞資料到另一個Activity
+        intentActivityResultLauncher.launch(intent); // 為了從另一個Activity獲取返回的資料
     }
 
     public void GotoYenExchange(View view) {
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     // 更新台幣餘額
     public void updateUI() {
         TextView textResult = (TextView) findViewById(R.id.showNTD);
-        textResult.setText(String.valueOf(dollarNTD));
+        textResult.setText(String.valueOf(balance));
 
     }
 
