@@ -5,13 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -55,14 +50,14 @@ public class DepositActivity extends AppCompatActivity {
     public void handleConfirm(View view) {
 
         // 讀取輸入金額
-        EditText inputMoneyText = (EditText) findViewById(R.id.input_money);
+        EditText inputMoneyText = (EditText) findViewById(R.id.input_rate);
         String inputMoneyStr = inputMoneyText.getText().toString();
+        double inputMoney = Double.parseDouble(inputMoneyStr);
 
         // 建立Intent物件, 回傳資料
         Intent returnIntent = new Intent();  // 回傳給MainActivity
 
-        if (!inputMoneyStr.isEmpty()) {
-            double inputMoney = Double.parseDouble(inputMoneyStr);
+        if (!inputMoneyStr.isEmpty() && inputMoney > 0) {  // 輸入金額不為空, 且大於0
 
             // 取款
             if (view.getId() == R.id.withdraw_btn) {
@@ -71,12 +66,13 @@ public class DepositActivity extends AppCompatActivity {
                 if (dollarNTD >= inputMoney) {
                     dollarNTD = dollarNTD - inputMoney;
 
-                } else {
-                    // 餘額不足
-                    if (dollarNTD < 0) {
-                        returnIntent.putExtra("NTD", -1);  // 資料傳回main  // 餘額不足
-                        setResult(Activity.RESULT_CANCELED, returnIntent);
-                    }
+                } else {  // 餘額不足
+
+                    // 資料傳回main  // 餘額不足
+                    returnIntent.putExtra("NTD", -1);
+                    setResult(Activity.RESULT_CANCELED, returnIntent);
+                    finish();
+                    return;
                 }
 
             // 存款

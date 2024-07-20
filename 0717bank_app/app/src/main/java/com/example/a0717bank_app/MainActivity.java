@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> intentActivityResultLauncher;
     private double dollarNTD  = 1000; // 帳戶餘額，預設1000;
     private double balance;  // 存(提)款後的餘額
+    private double NTDtoJPY; // 台幣轉日幣
+    private double JPYtoNTD; // 日幣轉台幣
 
 
     @Override
@@ -44,8 +46,14 @@ public class MainActivity extends AppCompatActivity {
                         // 寫另一個Activity回傳後, 得到回傳的資料之後的方法
                         if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
                             balance = result.getData().getDoubleExtra("NTD", -1);
+                            NTDtoJPY = result.getData().getDoubleExtra("NTDtoJPY", -1);
+                            JPYtoNTD = result.getData().getDoubleExtra("JPYtoNTD", -1);
 
                             updateUI();
+                        } else {
+                            // Handle the case when the user didn't complete the operation (e.g. pressed back)
+                            TextView showResult = (TextView) findViewById(R.id.result);
+                            showResult.setText("交易失敗");
                         }
                     }
                 }
@@ -56,12 +64,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DepositActivity.class);
         intent.putExtra("NTD", dollarNTD);
 //        startActivity(intent);   // 傳遞資料到另一個Activity
-        intentActivityResultLauncher.launch(intent); // 為了從另一個Activity獲取返回的資料
+        intentActivityResultLauncher.launch(intent); // 啟動 DepositActivity 並等待結果
     }
 
     public void GotoYenExchange(View view) {
         Intent intent = new Intent(this, ExchangeActivity.class);
-        startActivity(intent);
+//        startActivity(intent);
+        intentActivityResultLauncher.launch(intent); // 啟動 DepositActivity 並等待結果
     }
 
 

@@ -42,7 +42,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/input_money"
+                android:id="@+id/input_rate"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
