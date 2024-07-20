@@ -85,10 +85,5 @@ public class ExchangeActivity extends AppCompatActivity {
 
             finish();
         }
-
-
     }
-
-
-
 }
