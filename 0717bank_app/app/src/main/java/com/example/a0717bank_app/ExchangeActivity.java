@@ -30,12 +30,11 @@ public class ExchangeActivity extends AppCompatActivity {
         });
 
         // 接收來自MainActivity的台幣餘額資料
-        Intent intentNTD = getIntent();
-        dollarNTD = intentNTD.getDoubleExtra("NTD", 0);
+        Intent intent = getIntent();
+        dollarNTD = intent.getDoubleExtra("NTD", 0);
 
         // 接收來自MainActivity的日幣餘額資料
-        Intent intentJPY = getIntent();
-        dollarJPY = intentJPY.getDoubleExtra("JPY", 0);
+        dollarJPY = intent.getDoubleExtra("JPY", 0);
     }
 
 
@@ -60,18 +59,18 @@ public class ExchangeActivity extends AppCompatActivity {
             double exchange;
 
             // 計算匯兌 (eg. 1NTD = 0.2YEN)
-            if (view.getId() == R.id.NTDtoYen_btn) {   // 台幣換日幣
+            if (view.getId() == R.id.NTDtoJPY_btn) {   // 台幣換日幣
                 exchange = inputMoney / inputRate;
                 dollarNTD -= inputMoney;  // 台幣餘額減少
                 dollarJPY += exchange;  // 日幣餘額增加
 
                 // 操作結果, 傳回MainActivity
                 returnIntent.putExtra("NTDtoJPY", dollarNTD);
-                returnIntent.putExtra("JPYtoYTD", dollarJPY);
+                returnIntent.putExtra("JPYtoNTD", dollarJPY);
                 setResult(Activity.RESULT_OK, returnIntent);
 
 
-            } else {  // 計算日圓兌台幣
+            } else if (view.getId() == R.id.JPYToNTD_btn) {  // 計算日圓兌台幣
                 exchange = inputMoney * inputRate;
                 dollarJPY -= inputMoney;  // 日幣餘額減少
                 dollarNTD += exchange;  // 台幣餘額增加

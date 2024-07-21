@@ -81,7 +81,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/YenToNTD_btn"
+                android:id="@+id/JPYToNTD_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -92,7 +92,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/NTDtoYen_btn"
+                android:id="@+id/NTDtoJPY_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"

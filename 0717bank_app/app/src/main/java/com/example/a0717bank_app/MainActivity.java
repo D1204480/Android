@@ -45,9 +45,22 @@ public class MainActivity extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         // 寫另一個Activity回傳後, 得到回傳的資料之後的方法
                         if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
-                            balance = result.getData().getDoubleExtra("NTD", -1);
-                            NTDtoJPY = result.getData().getDoubleExtra("NTDtoJPY", -1);
-                            JPYtoNTD = result.getData().getDoubleExtra("JPYtoNTD", -1);
+
+                            Intent data = result.getData();
+                            if (data.hasExtra("NTD")) {
+                                dollarNTD = data.getDoubleExtra("NTD", -1);
+                            }
+
+                            if (data.hasExtra("NTDtoJPY")) {
+                                NTDtoJPY = data.getDoubleExtra("NTDtoJPY", -1);
+                            }
+
+                            if (data.hasExtra("JPYtoNTD")) {
+                                JPYtoNTD = data.getDoubleExtra("JPYtoNTD", -1);
+                            }
+//                            balance = result.getData().getDoubleExtra("NTD", -1);
+//                            NTDtoJPY = result.getData().getDoubleExtra("NTDtoJPY", -1);
+//                            JPYtoNTD = result.getData().getDoubleExtra("JPYtoNTD", -1);
 
                             updateUI();
                         } else {
@@ -70,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
     public void GotoYenExchange(View view) {
         Intent intent = new Intent(this, ExchangeActivity.class);
 //        startActivity(intent);
+        intent.putExtra("NTD", dollarNTD);
+        intent.putExtra("JPY", JPYtoNTD);
         intentActivityResultLauncher.launch(intent); // 啟動 DepositActivity 並等待結果
     }
 
@@ -77,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
     // 更新台幣餘額
     public void updateUI() {
         TextView textResult = (TextView) findViewById(R.id.showNTD);
-        textResult.setText(String.valueOf(balance));
+        textResult.setText(String.valueOf(dollarNTD));
+
+        TextView showResult = (TextView) findViewById(R.id.result);
+        showResult.setText("交易成功");
 
     }
 
@@ -101,4 +119,4 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(intent);
 //
 //    }
-}
+} // end of MainActivity
