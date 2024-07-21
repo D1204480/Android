@@ -19,7 +19,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> intentActivityResultLauncher;
-    private double dollarNTD  = 1000; // 帳戶餘額，預設1000;
+    private double dollarNTD; // 帳戶餘額
+    private double dollarJPY; // 日幣餘額
     private double balance;  // 存(提)款後的餘額
     private double NTDtoJPY; // 台幣轉日幣
     private double JPYtoNTD; // 日幣轉台幣
@@ -81,18 +82,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void GotoYenExchange(View view) {
+        TextView showJPYText = (TextView) findViewById(R.id.showJPY);
+        double dollarJPY = Double.parseDouble(showJPYText.getText().toString());
+
+        TextView showNTDText = (TextView) findViewById(R.id.showNTD);
+        double dollarNTD = Double.parseDouble(showNTDText.getText().toString());
+
         Intent intent = new Intent(this, ExchangeActivity.class);
 //        startActivity(intent);
         intent.putExtra("NTD", dollarNTD);
-        intent.putExtra("JPY", JPYtoNTD);
-        intentActivityResultLauncher.launch(intent); // 啟動 DepositActivity 並等待結果
+        intent.putExtra("JPY", dollarJPY);
+        intentActivityResultLauncher.launch(intent); // 啟動 ExchangeActivity 並等待結果
     }
 
 
-    // 更新台幣餘額
+    // 更新台幣餘額 (存提款)
     public void updateUI() {
-        TextView textResult = (TextView) findViewById(R.id.showNTD);
-        textResult.setText(String.valueOf(dollarNTD));
+        // 台幣存提
+        TextView showNTDText = (TextView) findViewById(R.id.showNTD);
+        showNTDText.setText(String.valueOf(dollarNTD));
+
+        // 日圓兌換
+        TextView showJPYText = (TextView) findViewById(R.id.showJPY);
+        showJPYText.setText(String.valueOf(JPYtoNTD));
+        showNTDText.setText(String.valueOf(NTDtoJPY));
 
         TextView showResult = (TextView) findViewById(R.id.result);
         showResult.setText("交易成功");

@@ -98,6 +98,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="#946725"
+                android:onClick="handleConfirm"
                 android:text="台幣換日圓"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"

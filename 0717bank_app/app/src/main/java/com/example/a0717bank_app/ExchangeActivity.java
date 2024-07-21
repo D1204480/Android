@@ -82,7 +82,15 @@ public class ExchangeActivity extends AppCompatActivity {
 
             }
 
+        } else {
+            // 資料傳回main  // 餘額不足
+            returnIntent.putExtra("NTDtoJpY", -1);
+            returnIntent.putExtra("JPYtoNTD", -1);
+            setResult(Activity.RESULT_CANCELED, returnIntent);
             finish();
+            return;
         }
+
+        finish();
     }
 }

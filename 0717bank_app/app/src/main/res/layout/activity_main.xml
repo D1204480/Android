@@ -106,7 +106,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/showUSD"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -130,7 +130,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/showJPY"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
