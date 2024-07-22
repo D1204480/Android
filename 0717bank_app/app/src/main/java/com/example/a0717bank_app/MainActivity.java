@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void GotoDeposit(View view) {
+        TextView showNTDText = (TextView) findViewById(R.id.showNTD);
+        double dollarNTD = Double.parseDouble(showNTDText.getText().toString());
+
         Intent intent = new Intent(this, DepositActivity.class);
         intent.putExtra("NTD", dollarNTD);
 //        startActivity(intent);   // 傳遞資料到另一個Activity
