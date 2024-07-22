@@ -26,7 +26,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -34,7 +34,7 @@
                 android:textAlignment="textEnd" />
 
             <EditText
-                android:id="@+id/edit_rate"
+                android:id="@+id/edit_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -51,7 +51,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/usdBalabce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -80,7 +80,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="米金換台幣" />
+                android:onClick="changeCoin"
+                android:text="toNTD" />
 
             <Button
                 android:id="@+id/NTDto"
@@ -88,7 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="台幣換米金" />
+                android:onClick="changeCoin"
+                android:text="NTDto" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

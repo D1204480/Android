@@ -27,7 +27,7 @@ public class NTDActivity extends AppCompatActivity {
     }
 
     public void GoBack(View view) {
-        double amount = Double.parseDouble(((EditText)findViewById(R.id.edit_rate)).getText().toString()); // EditText轉為Double
+        double amount = Double.parseDouble(((EditText)findViewById(R.id.edit_amount)).getText().toString()); // EditText轉為Double
 
         Intent intent = new Intent();  // 跳轉回mainActivity
 

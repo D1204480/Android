@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="新台幣存／提款"
@@ -34,7 +34,7 @@
                 android:textAlignment="textEnd" />
 
             <EditText
-                android:id="@+id/edit_rate"
+                android:id="@+id/edit_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
