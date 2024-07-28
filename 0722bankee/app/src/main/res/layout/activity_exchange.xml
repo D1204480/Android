@@ -11,18 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="49dp"
             android:text="美金換匯"
             android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="67dp"
             android:orientation="horizontal">
 
             <TextView
@@ -36,7 +41,7 @@
             <EditText
                 android:id="@+id/edit_amount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="請輸入金額"
@@ -46,7 +51,7 @@
 
         <LinearLayout
             android:layout_width="411dp"
-            android:layout_height="81dp"
+            android:layout_height="77dp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
@@ -61,11 +66,11 @@
             <EditText
                 android:id="@+id/edit_rate"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="請輸入匯率"
-                android:inputType="number" />
+                android:inputType="number|numberDecimal" />
 
         </LinearLayout>
 
@@ -81,7 +86,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:onClick="changeCoin"
-                android:text="toNTD" />
+                android:text="美金換新台幣" />
 
             <Button
                 android:id="@+id/NTDto"
@@ -90,7 +95,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:onClick="changeCoin"
-                android:text="NTDto" />
+                android:text="新台幣換美金" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

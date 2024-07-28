@@ -36,7 +36,7 @@
             <EditText
                 android:id="@+id/edit_amount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="73dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="請輸入台幣金額"
