@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">0812 pretest_practice</string>
+
+    <string-array name="todoItems">
+        <item>還沒有待辦事項，趕緊去新增！</item>
+
+    </string-array>
 </resources>
