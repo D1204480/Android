@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "0812 pretest_practice"
 include(":app")
+include(":app")
+include(":app")
+include(":app")
  
